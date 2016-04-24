@@ -1,0 +1,30 @@
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	/*font-family: ;*/
+}
+
+
+
+
+
+/********** Extra small devices only **********/
+@media (max-width: 767px) {
+
+}
+
+/********** Small devices only **********/
+@media (min-width: 768px) and (max-width: 991px) {
+
+}
+
+/********** Medium devices only **********/
+@media (min-width: 992px) and (max-width: 1199px) {
+
+}
+
+/********** Large devices only **********/
+@media (min-width: 1200px) {
+	
+}
