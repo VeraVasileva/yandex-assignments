@@ -2,29 +2,131 @@
 	box-sizing: border-box;
 	margin: 0;
 	padding: 0;
-	/*font-family: ;*/
+	font-family: 'Roboto Condensed', sans-serif;
+	background-color: linen;
 }
 
+body {
+	background-color: linen;
+}
+/** HEADER **/
+#header-nav {
+	border-radius: 0;
+	border: 2px solid maroon;
+	margin-bottom: 0;
+	background-color: linen;
+	margin-bottom: 40px;
+}
 
+.navbar-brand h1 { /* Main Heading */
+	color: black;
+	font-size: 1.5em;
+	font-weight: bold;
+	padding-left: 0px;
+	margin-top: 0;
+	margin-bottom: 0;
+	line-height: 0.75;
+}
 
+.navbar-brand a:hover, .navbar-brand a:focus {
+	text-decoration: none;
+}
 
+#nav-list a {
+  color: black;
+  text-align: center;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+#nav-list a:hover {
+  background: white;
+}
+
+.navbar-header button.navbar-toggle, .navbar-header .icon-bar {
+  border: 1px solid maroon;
+}
+
+.navbar-header button.navbar-toggle {
+  clear: both;
+  margin-top: -40px;
+}
+/** END HEADER **/
+
+/** BODY **/
+
+section > h3 {
+	margin-top: 30;
+	margin-bottom: 10px;
+}
+
+.container {
+	width: 100%;
+}
+
+div.row > div {
+	padding: 0; 
+}
+
+section {
+	background-color: linen;
+	height: auto;
+	padding: 10px;
+	margin-right: 5px;
+	margin-left: 5px;
+	margin-bottom: 10px;
+/*	border: 1px solid black;*/
+}
+
+.time {
+	width: 15%;
+	float: left;
+}
+.program {
+	width: 85%;
+	float: left;
+}
+
+/** END BODY **/
 
 /********** Extra small devices only **********/
 @media (max-width: 767px) {
+.time {
+	width: 11%;
+	float: left;
+}
+.program {
+	width: 89%;
+	float: left;
+}
 
 }
 
 /********** Small devices only **********/
 @media (min-width: 768px) and (max-width: 991px) {
 
-}
 
+}
 /********** Medium devices only **********/
 @media (min-width: 992px) and (max-width: 1199px) {
-
+#container {
+	margin-left: 30px;
+	margin-right: 30px;
+}
 }
 
 /********** Large devices only **********/
 @media (min-width: 1200px) {
-	
+#container {
+	margin-left: 30px;
+	margin-right: 30px;
+}
+
+.time {
+	width: 13%;
+	float: left;
+}
+.program {
+	width: 87%;
+	float: left;
+}
 }
