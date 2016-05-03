@@ -3,7 +3,6 @@
 	margin: 0;
 	padding: 0;
 	font-family: 'Roboto Condensed', sans-serif;
-	background-color: linen;
 }
 
 body {
@@ -46,9 +45,17 @@ body {
   border: 1px solid maroon;
 }
 
-.navbar-header button.navbar-toggle {
+/*.navbar-header button.navbar-toggle {
   clear: both;
   margin-top: -40px;
+}*/
+
+.navbar-header button.navbar-toggle:hover {
+  background-color: white;
+}
+
+.navbar-header button.navbar-toggle:focus {
+  background-color: white;
 }
 /** END HEADER **/
 
@@ -103,7 +110,9 @@ section {
 
 /********** Small devices only **********/
 @media (min-width: 768px) and (max-width: 991px) {
-
+li.nav-list-li span:nth-child(2) {
+	display: none;
+}
 
 }
 /********** Medium devices only **********/
