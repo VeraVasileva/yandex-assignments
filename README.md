@@ -16,3 +16,15 @@
     </div>
   </section>
 </div>
+
+<div>
+  <section>
+    <h4><strong>Task 3:</strong></h4>
+    <div>
+      <ul>
+        <li><a href="https://github.com/VeraVasileva/yandex-assignments/tree/gh-pages/students">Source code</a>
+        <li><a href="http://veravasileva.github.io/yandex-assignments/students/client">Prototype on gh-pages</a>
+      </ul>
+    </div>
+  </section>
+</div>
