@@ -4,7 +4,7 @@ var urlsToCache = [
   './',
   './css/index.css',
   './js/index.js',
-
+  './api/v1/students'
 ];
 
 self.addEventListener('install', (event) => {
