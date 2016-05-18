@@ -197,11 +197,11 @@ ValidationError.prototype.constructor = ValidationError;
 function json(response) { return response.json(); }
 
 function getStudents() {
-    return fetch('../api/v1/students').then(json);
+    return fetch('/api/v1/students').then(json);
 }
 
 function addStudent(student) {
-    return fetch('../api/v1/students', {
+    return fetch('/api/v1/students', {
         method: 'post',
         headers: {
             "Content-type": "application/json; charset=UTF-8"
@@ -211,7 +211,7 @@ function addStudent(student) {
 }
 
 function updateStudent(student) {
-    return fetch(`../api/v1/students/${student.id}`, {
+    return fetch(`/api/v1/students/${student.id}`, {
         method: 'put',
         headers: {
             "Content-type": "application/json; charset=UTF-8"
