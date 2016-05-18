@@ -34,7 +34,7 @@ function delegate(containers, selector, event, handler) {
 function onStudentAddClick(e) {
     e.preventDefault();
 
-    this.setAttribute('disabled', 'disabled');
+    //this.setAttribute('disabled', 'disabled');
 
     getStudentData(this.closest('form'))
         .then(addStudent)
@@ -53,7 +53,7 @@ function onStudentAddClick(e) {
             }
         })
         .then(() => {
-            this.removeAttribute('disabled');
+            //this.removeAttribute('disabled');
         });
 }
 
@@ -70,7 +70,7 @@ function onStudentSaveClick(e) {
     const studentContainer = this.closest('.student');
     const studentData = getFormData(this.closest('form'));
 
-    this.setAttribute('disabled', 'disabled');
+    //this.setAttribute('disabled', 'disabled');
 
     getStudentData(this.closest('form'))
         .then(updateStudent)
@@ -90,7 +90,7 @@ function onStudentSaveClick(e) {
             }
         })
         .then(() => {
-            this.removeAttribute('disabled');
+            //this.removeAttribute('disabled');
         });
 }
 
