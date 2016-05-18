@@ -1,7 +1,5 @@
 /* Application */
 
-var last = 0;
-
 function getFormData(form) {
     return [].reduce.call(
         form.querySelectorAll('input, textarea'),
