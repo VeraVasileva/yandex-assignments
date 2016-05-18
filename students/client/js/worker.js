@@ -34,7 +34,7 @@ self.addEventListener('fetch', function(event) {
     }
 
     return event.respondWith(
-        getFromCache(event.request).catch( () => fetchAndPutToCache);
+        getFromCache(event.request).catch(fetchAndPutToCache);
     );
 });
 
