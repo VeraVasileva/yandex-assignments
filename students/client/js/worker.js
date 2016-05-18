@@ -2,8 +2,8 @@ var CACHE_NAME = 'shri-2016-task3-1';
 
 var urlsToCache = [
   '/',
-  '/students/client/css/index.css',
-  '/students/client/js/index.js'
+  '/css/index.css',
+  '/js/index.js'
 ];
 
 self.addEventListener('install', (event) => {
