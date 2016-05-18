@@ -1,4 +1,4 @@
-var CACHE_NAME = 'students/client';
+var CACHE_NAME = 'shri-2016-task3-1';
 
 var urlsToCache = [
   '/',
