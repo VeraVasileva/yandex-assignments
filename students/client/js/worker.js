@@ -2,8 +2,8 @@ var CACHE_NAME = 'shri-2016-task3-1';
 
 var urlsToCache = [
   '/',
-  '/task3/client/css/index.css',
-  '/task3/client/js/index.js'
+  '/index.css',
+  '/index.js'
 ];
 
 self.addEventListener('install', (event) => {
@@ -33,8 +33,8 @@ self.addEventListener('fetch', function(event) {
     }
 
     return event.respondWith(
-            getFromCache(event.request).catch(fetchAndPutToCache)
-        );
+        getFromCache(event.request).catch(fetchAndPutToCache);
+    );
 });
 
 function fetchAndPutToCache(request) {
