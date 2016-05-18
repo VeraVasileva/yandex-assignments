@@ -52,9 +52,9 @@ function onStudentAddClick(e) {
                 alert('Что-то пошло не так!');
             }
         })
-        .then(() => {
-            //this.removeAttribute('disabled');
-        });
+        /*.then(() => {
+            this.removeAttribute('disabled');
+        });*/
 }
 
 function onStudentUpdateClick(e) {
