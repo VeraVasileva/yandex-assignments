@@ -1,5 +1,7 @@
 /* Application */
 
+var last = 0;
+
 function getFormData(form) {
     return [].reduce.call(
         form.querySelectorAll('input, textarea'),
@@ -37,20 +39,17 @@ function onStudentAddClick(e) {
     //this.setAttribute('disabled', 'disabled');
 
     getStudentData(this.closest('form'))
+        .then((student) => {
+            student.div_id = last++;
+            document.getElementsByClassName('students__list')[0].innerHTML += renderStudent(student);
+            return student;
+        })
         .then(addStudent)
-        .then(() => {
+        .then((response) => {
             [].forEach.call(
                 this.closest('form').querySelectorAll('input, textarea'),
                 (x) => x.value = ''
             );
-        })
-        .then(getStudents)
-        .then(updateStudentsList)
-        .catch((e) => {
-            if (!(e instanceof ValidationError)) {
-                console.error(e);
-                alert('Что-то пошло не так!');
-            }
         });
         /*.then(() => {
             this.removeAttribute('disabled');
