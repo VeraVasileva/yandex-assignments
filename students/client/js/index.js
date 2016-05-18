@@ -1,5 +1,7 @@
 /* Application */
 
+var last = 0;
+
 function getFormData(form) {
     return [].reduce.call(
         form.querySelectorAll('input, textarea'),
@@ -34,27 +36,44 @@ function delegate(containers, selector, event, handler) {
 function onStudentAddClick(e) {
     e.preventDefault();
 
-    //this.setAttribute('disabled', 'disabled');
+    // this.setAttribute('disabled', 'disabled');
+
+    // getStudentData(this.closest('form'))
+    //     .then(addStudent)
+    //     .then(() => {
+    //         [].forEach.call(
+    //             this.closest('form').querySelectorAll('input, textarea'),
+    //             (x) => x.value = ''
+    //         );
+    //     })
+    //     .then(getStudents)
+    //     .then(updateStudentsList)
+    //     .catch((e) => {
+    //         if (!(e instanceof ValidationError)) {
+    //             console.error(e);
+    //             alert('Что-то пошло не так!');
+    //         }
+    //     });
+
 
     getStudentData(this.closest('form'))
+        .then((student) => {
+            student.div_id = last++;
+            document.getElementsByClassName('students__list')[0].innerHTML += renderStudent(student);
+            return student;
+        })
         .then(addStudent)
-        .then(() => {
+        .then((response) => {
             [].forEach.call(
                 this.closest('form').querySelectorAll('input, textarea'),
                 (x) => x.value = ''
             );
-        })
-        .then(getStudents)
-        .then(updateStudentsList)
-        .catch((e) => {
-            if (!(e instanceof ValidationError)) {
-                console.error(e);
-                alert('Что-то пошло не так!');
-            }
         });
-        /*.then(() => {
-            this.removeAttribute('disabled');
-        });*/
+
+
+        // .then(() => {
+        //     this.removeAttribute('disabled');
+        // });
 }
 
 function onStudentUpdateClick(e) {
@@ -111,23 +130,6 @@ function renderStudent(student) {
     `;
 }
 
-function renderStudentForm(student) {
-    return `
-        <form class="student__update-form student-form">
-            <input type="hidden" name="id" value="${student.id}">
-            <label class="student-form__field student-form__field-name">
-                <span class="student-form__field-label">Имя</span><input type="text" name="name" value="${student.name}">
-            </label>
-            <label class="student-form__field student-form__field-picture">
-                <span class="student-form__field-label">URL фотографии</span><input type="text" name="picture" value="${student.picSrc}">
-            </label>
-            <label class="student-form__field student-form__field-bio">
-                <span class="student-form__field-label">Кратко о себе</span><textarea name="bio" rows="5" cols="40">${student.bio}</textarea>
-            </label>
-            <button class="student__save-btn">Сохранить</button>
-        </form>
-    `;
-}
 
 function getStudentData(form) {
     return new Promise((resolve, reject) => {
@@ -196,11 +198,24 @@ ValidationError.prototype.constructor = ValidationError;
 
 /* API accessors */
 
-function json(response) { return response.json(); }
+function json(response) { 
+    return response.json(); 
+}
 
 function getStudents() {
     return fetch('/api/v1/students').then(json);
 }
+
+
+// function getStudents() {
+//     return fetch('/api/v1/students', {
+//         method: 'get',
+//         headers: {
+//             "Content-type": "application/json; charset=UTF-8"
+//         },
+//         body: JSON.stringify()
+//     }).then(json);
+// }
 
 function addStudent(student) {
     return fetch('/api/v1/students', {
