@@ -51,7 +51,7 @@ function onStudentAddClick(e) {
                 console.error(e);
                 alert('Что-то пошло не так!');
             }
-        })
+        });
         /*.then(() => {
             this.removeAttribute('disabled');
         });*/
@@ -73,7 +73,7 @@ function onStudentSaveClick(e) {
     //this.setAttribute('disabled', 'disabled');
 
     getStudentData(this.closest('form'))
-        .then(updateStudent)
+        
         .then((student) => {
             const newStudentsContainer = document.createElement('div');
             newStudentsContainer.innerHTML = renderStudent(student);
@@ -82,13 +82,15 @@ function onStudentSaveClick(e) {
 
             studentsContainer.insertBefore(newStudentContainer, studentContainer);
             studentsContainer.removeChild(studentContainer);
+            return student;
         })
+        .then(updateStudent)
         .catch((e) => {
             if (!(e instanceof ValidationError)) {
                 console.error(e);
                 alert('Что-то пошло не так!');
             }
-        })
+        });
         /*.then(() => {
             this.removeAttribute('disabled');
         });*/
